@@ -1,0 +1,332 @@
+{
+  "additionalPrograms": [],
+  "kind": "rootNode",
+  "program": {
+    "accounts": [
+      {
+        "data": {
+          "fields": [
+            {
+              "kind": "structFieldTypeNode",
+              "name": "bump",
+              "type": {
+                "endian": "le",
+                "format": "u8",
+                "kind": "numberTypeNode"
+              }
+            },
+            {
+              "kind": "structFieldTypeNode",
+              "name": "payer",
+              "type": {
+                "kind": "publicKeyTypeNode"
+              }
+            },
+            {
+              "kind": "structFieldTypeNode",
+              "name": "notes",
+              "type": {
+                "count": {
+                  "kind": "prefixedCountNode",
+                  "prefix": {
+                    "endian": "le",
+                    "format": "u32",
+                    "kind": "numberTypeNode"
+                  }
+                },
+                "item": {
+                  "endian": "le",
+                  "format": "u8",
+                  "kind": "numberTypeNode"
+                },
+                "kind": "arrayTypeNode"
+              }
+            }
+          ],
+          "kind": "structTypeNode"
+        },
+        "kind": "accountNode",
+        "name": "piano",
+        "pda": {
+          "kind": "pdaLinkNode",
+          "name": "piano"
+        }
+      }
+    ],
+    "definedTypes": [],
+    "errors": [],
+    "instructions": [
+      {
+        "accounts": [
+          {
+            "isSigner": true,
+            "isWritable": true,
+            "kind": "instructionAccountNode",
+            "name": "payer"
+          },
+          {
+            "isSigner": false,
+            "isWritable": true,
+            "kind": "instructionAccountNode",
+            "name": "piano"
+          },
+          {
+            "isSigner": false,
+            "isWritable": false,
+            "kind": "instructionAccountNode",
+            "name": "systemProgram"
+          }
+        ],
+        "arguments": [
+          {
+            "defaultValue": {
+              "kind": "numberValueNode",
+              "number": 0
+            },
+            "defaultValueStrategy": "omitted",
+            "kind": "instructionArgumentNode",
+            "name": "discriminator",
+            "type": {
+              "endian": "le",
+              "format": "u8",
+              "kind": "numberTypeNode"
+            }
+          }
+        ],
+        "discriminators": [
+          {
+            "kind": "fieldDiscriminatorNode",
+            "name": "discriminator",
+            "offset": 0
+          }
+        ],
+        "kind": "instructionNode",
+        "name": "initialize"
+      },
+      {
+        "accounts": [
+          {
+            "isSigner": false,
+            "isWritable": true,
+            "kind": "instructionAccountNode",
+            "name": "piano"
+          }
+        ],
+        "arguments": [
+          {
+            "defaultValue": {
+              "kind": "numberValueNode",
+              "number": 1
+            },
+            "defaultValueStrategy": "omitted",
+            "kind": "instructionArgumentNode",
+            "name": "discriminator",
+            "type": {
+              "endian": "le",
+              "format": "u8",
+              "kind": "numberTypeNode"
+            }
+          },
+          {
+            "kind": "instructionArgumentNode",
+            "name": "notes",
+            "type": {
+              "count": {
+                "kind": "prefixedCountNode",
+                "prefix": {
+                  "endian": "le",
+                  "format": "u32",
+                  "kind": "numberTypeNode"
+                }
+              },
+              "item": {
+                "endian": "le",
+                "format": "u8",
+                "kind": "numberTypeNode"
+              },
+              "kind": "arrayTypeNode"
+            }
+          }
+        ],
+        "discriminators": [
+          {
+            "kind": "fieldDiscriminatorNode",
+            "name": "discriminator",
+            "offset": 0
+          }
+        ],
+        "kind": "instructionNode",
+        "name": "playNotes"
+      },
+      {
+        "accounts": [
+          {
+            "isSigner": true,
+            "isWritable": true,
+            "kind": "instructionAccountNode",
+            "name": "payer"
+          },
+          {
+            "isSigner": false,
+            "isWritable": true,
+            "kind": "instructionAccountNode",
+            "name": "piano"
+          },
+          {
+            "isSigner": false,
+            "isWritable": false,
+            "kind": "instructionAccountNode",
+            "name": "ownerProgram"
+          },
+          {
+            "isSigner": false,
+            "isWritable": false,
+            "kind": "instructionAccountNode",
+            "name": "systemProgram"
+          },
+          {
+            "isSigner": false,
+            "isWritable": true,
+            "kind": "instructionAccountNode",
+            "name": "buffer"
+          },
+          {
+            "isSigner": false,
+            "isWritable": true,
+            "kind": "instructionAccountNode",
+            "name": "delegationRecord"
+          },
+          {
+            "isSigner": false,
+            "isWritable": true,
+            "kind": "instructionAccountNode",
+            "name": "delegationMetadata"
+          },
+          {
+            "isSigner": false,
+            "isWritable": false,
+            "kind": "instructionAccountNode",
+            "name": "delegationProgram"
+          },
+          {
+            "isOptional": true,
+            "isSigner": false,
+            "isWritable": true,
+            "kind": "instructionAccountNode",
+            "name": "validator"
+          }
+        ],
+        "arguments": [
+          {
+            "defaultValue": {
+              "kind": "numberValueNode",
+              "number": 2
+            },
+            "defaultValueStrategy": "omitted",
+            "kind": "instructionArgumentNode",
+            "name": "discriminator",
+            "type": {
+              "endian": "le",
+              "format": "u8",
+              "kind": "numberTypeNode"
+            }
+          }
+        ],
+        "discriminators": [
+          {
+            "kind": "fieldDiscriminatorNode",
+            "name": "discriminator",
+            "offset": 0
+          }
+        ],
+        "kind": "instructionNode",
+        "name": "delegate"
+      },
+      {
+        "accounts": [
+          {
+            "isSigner": true,
+            "isWritable": true,
+            "kind": "instructionAccountNode",
+            "name": "payer"
+          },
+          {
+            "isSigner": false,
+            "isWritable": true,
+            "kind": "instructionAccountNode",
+            "name": "piano"
+          },
+          {
+            "isSigner": false,
+            "isWritable": false,
+            "kind": "instructionAccountNode",
+            "name": "magicContext"
+          },
+          {
+            "isSigner": false,
+            "isWritable": false,
+            "kind": "instructionAccountNode",
+            "name": "magicProgram"
+          }
+        ],
+        "arguments": [
+          {
+            "defaultValue": {
+              "kind": "numberValueNode",
+              "number": 3
+            },
+            "defaultValueStrategy": "omitted",
+            "kind": "instructionArgumentNode",
+            "name": "discriminator",
+            "type": {
+              "endian": "le",
+              "format": "u8",
+              "kind": "numberTypeNode"
+            }
+          }
+        ],
+        "discriminators": [
+          {
+            "kind": "fieldDiscriminatorNode",
+            "name": "discriminator",
+            "offset": 0
+          }
+        ],
+        "kind": "instructionNode",
+        "name": "undelegate"
+      }
+    ],
+    "kind": "programNode",
+    "name": "magicblockPiano",
+    "pdas": [
+      {
+        "kind": "pdaNode",
+        "name": "piano",
+        "seeds": [
+          {
+            "kind": "constantPdaSeedNode",
+            "type": {
+              "encoding": "utf8",
+              "kind": "stringTypeNode"
+            },
+            "value": {
+              "kind": "stringValueNode",
+              "string": "piano"
+            }
+          },
+          {
+            "kind": "variablePdaSeedNode",
+            "name": "payer",
+            "type": {
+              "kind": "publicKeyTypeNode"
+            }
+          }
+        ]
+      }
+    ],
+    "publicKey": "H4TeeQbcMo6b8UMfYzHtFo99KNi8qoH5aLTbEZQSSsAu",
+    "version": "0.1.0"
+  },
+  "standard": "codama",
+  "version": "1.0.0"
+}

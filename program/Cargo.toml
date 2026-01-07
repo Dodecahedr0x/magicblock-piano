@@ -1,0 +1,38 @@
+[package]
+name = "magicblock_piano"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+
+[features]
+no-entrypoint = []
+custom-panic = []
+custom-heap = []
+
+[dependencies]
+borsh = { workspace = true }
+codama = { workspace = true }
+ephemeral-rollups-sdk = { workspace = true }
+solana-account-info = { workspace = true }
+solana-program = { workspace = true }
+solana-program-error = { workspace = true }
+solana-pubkey = { workspace = true }
+solana-system-interface = { workspace = true, features = ["bincode"] }
+
+[dev-dependencies]
+litesvm = { workspace = true }
+magicblock-piano-client = { workspace = true }
+solana-keypair = { workspace = true }
+solana-signer = { workspace = true }
+solana-transaction = { workspace = true }
+
+[build-dependencies]
+codama = { workspace = true }
+serde_json = { workspace = true }
+
+[lints.rust]
+unexpected_cfgs = { level = "warn", check-cfg = [
+    'cfg(target_os, values("solana"))',
+] }

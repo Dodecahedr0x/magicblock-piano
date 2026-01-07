@@ -1,0 +1,19 @@
+[package]
+name = "magicblock-piano-client"
+version = "0.1.0"
+edition = "2021"
+
+[features]
+serde = ["dep:serde"]
+fetch = []
+anchor = []
+anchor-idl-build = []
+
+[dependencies]
+borsh = { workspace = true }
+serde = { workspace = true, optional = true }
+solana-account-info = { workspace = true }
+solana-cpi = { workspace = true }
+solana-instruction = { workspace = true }
+solana-pubkey = { workspace = true }
+solana-program-error = { workspace = true }
