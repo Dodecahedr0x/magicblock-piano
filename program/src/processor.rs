@@ -79,7 +79,7 @@ pub fn process_delegate(accounts: &[AccountInfo]) -> ProgramResult {
     let delegation_record = next_account_info(accounts_iter)?;
     let delegation_metadata = next_account_info(accounts_iter)?;
     let delegation_program = next_account_info(accounts_iter)?;
-    let validator = next_account_info(accounts_iter)?;
+    let validator = next_account_info(accounts_iter).ok();
 
     let piano_data = Piano::deserialize(&mut &piano.data.borrow()[..])?;
     let pda = Pubkey::create_program_address(
@@ -104,7 +104,7 @@ pub fn process_delegate(accounts: &[AccountInfo]) -> ProgramResult {
         &[b"piano", piano_data.payer.as_ref()],
         DelegateConfig {
             commit_frequency_ms: 0,
-            validator: Some(*validator.key),
+            validator: validator.map(|v| *v.key),
         },
     )?;
 

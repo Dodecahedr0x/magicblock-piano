@@ -1,11 +1,16 @@
 {
-  "name": "js",
-  "version": "1.0.0",
+  "name": "magicblock-piano-client",
+  "version": "0.1.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.ts",
+  "module": "src/index.ts",
+  "types": "src/index.ts",
+  "exports": {
+    ".": "./dist/index.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc"
+    "build": "rm -rf dist && tsc"
   },
   "keywords": [],
   "author": "",

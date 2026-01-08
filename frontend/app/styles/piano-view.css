@@ -1,0 +1,200 @@
+.piano-view {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.controls {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.control-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--muted);
+}
+
+.control-buttons {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.control-buttons .range {
+  width: 160px;
+}
+
+.status-line {
+  font-size: 0.85rem;
+  color: var(--accent);
+  font-weight: 600;
+  text-align: center;
+}
+
+.pda-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.pda-input {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.pda-input input {
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 0.75rem;
+  padding: 0.6rem 0.9rem;
+  font-family: inherit;
+  font-size: 0.9rem;
+  background: #fff;
+}
+
+.select {
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 999px;
+  padding: 0.6rem 1rem;
+  font-family: inherit;
+  font-size: 0.9rem;
+  background: #fff;
+}
+
+.piano-shell {
+  background: linear-gradient(120deg, #fff7ed, #fce2cf);
+  border-radius: 2rem;
+  padding: 2.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+  overflow-x: auto;
+}
+
+.piano-shell-disabled {
+  position: relative;
+  filter: grayscale(85%);
+}
+
+.piano-shell-disabled .piano {
+  pointer-events: none;
+  filter: blur(4px);
+}
+
+.piano-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(245, 239, 230, 0.5);
+  border-radius: inherit;
+  backdrop-filter: blur(8px);
+  z-index: 5;
+}
+
+.piano {
+  position: relative;
+  min-width: calc(14 * var(--white-key-width));
+  z-index: 1;
+}
+
+.white-keys {
+  display: flex;
+}
+
+.key {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.35rem;
+  position: relative;
+}
+
+.key.white {
+  width: var(--white-key-width);
+  height: var(--white-key-height);
+  background: #fff;
+  border: 2px solid var(--stroke);
+  border-radius: 0 0 1rem 1rem;
+  padding-bottom: 1rem;
+}
+
+.key.black {
+  width: var(--black-key-width);
+  height: var(--black-key-height);
+  background: #1c1c1c;
+  color: #fff;
+  position: absolute;
+  top: 0;
+  border-radius: 0 0 0.75rem 0.75rem;
+  border: 2px solid #000;
+  z-index: 2;
+  padding-bottom: 0.75rem;
+}
+
+.key.black .note,
+.key.black .binding {
+  color: #f8f8f8;
+}
+
+.key.white.active {
+  background: var(--accent-soft);
+}
+
+.key.black.active {
+  background: #f07b54;
+}
+
+.note {
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.binding {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.index {
+  font-size: 0.7rem;
+  color: var(--muted);
+}
+
+.divider {
+  width: 70%;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.black-keys {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: var(--black-key-height);
+  width: 100%;
+  pointer-events: none;
+}
+
+.black-keys .key.black {
+  pointer-events: auto;
+}
+
+@media (max-width: 900px) {
+  .controls {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

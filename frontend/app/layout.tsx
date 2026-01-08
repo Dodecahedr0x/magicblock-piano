@@ -1,19 +1,27 @@
-import "./globals.css";
-import type { Metadata } from "next";
+"use client";
 
-export const metadata: Metadata = {
-  title: "Magicblock Piano",
-  description: "Two-octave piano controller",
-};
+import "./globals.css";
+import { useEffect } from "react";
+import { SelectedWalletAccountContextProvider } from "./contexts/SelectedWalletAccountContextProvider";
+import { Toaster } from "sonner";
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  useEffect(() => {
+    document.title = "Magicblock Piano";
+  }, []);
+
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <Toaster />
+        <SelectedWalletAccountContextProvider>
+          {children}
+        </SelectedWalletAccountContextProvider>
+      </body>
     </html>
   );
 }

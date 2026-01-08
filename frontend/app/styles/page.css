@@ -1,0 +1,28 @@
+.page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2.5rem 5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.title-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.title-bar h1 {
+  font-size: clamp(2.4rem, 3vw, 3.4rem);
+  line-height: 1.05;
+  max-width: 16ch;
+}
+
+@media (max-width: 900px) {
+  .page {
+    padding: 3rem 1.5rem 4rem;
+  }
+}

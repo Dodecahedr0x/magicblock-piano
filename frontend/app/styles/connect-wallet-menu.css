@@ -1,0 +1,54 @@
+.wallet-menu {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.wallet-menu-panel {
+  position: absolute;
+  top: calc(100% + 0.6rem);
+  left: 0;
+  min-width: 16rem;
+  background: var(--panel);
+  border: 1px solid var(--stroke);
+  border-radius: 1rem;
+  padding: 0.9rem;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  z-index: 10;
+}
+
+.wallet-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.wallet-row-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.wallet-accounts {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding-left: 0.35rem;
+}
+
+.wallet-account-option {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  color: var(--ink);
+}
+
+.wallet-row-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
