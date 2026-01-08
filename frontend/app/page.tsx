@@ -4,6 +4,7 @@ import { PianoProvider } from "./contexts/PianoContext";
 import { useSelectedWallet } from "./hooks/useSelectedWallet";
 import { PianoView } from "./components/PianoView";
 import { LocalKeypairView } from "./components/LocalKeypairView";
+import { ConnectWalletMenu } from "./components/ConnectWalletMenu";
 
 function PianoPage() {
   const { selectedWalletAccount: wallet } = useSelectedWallet();
@@ -11,6 +12,7 @@ function PianoPage() {
     <main className="page">
       <header className="title-bar">
         <h1>Magicblock Piano</h1>
+        <ConnectWalletMenu>Connect</ConnectWalletMenu>
         {wallet ? <LocalKeypairView wallet={wallet} /> : null}
         {wallet ? <PianoView wallet={wallet} /> : null}
       </header>

@@ -3,7 +3,6 @@
 import { UiWalletAccount } from "@wallet-standard/react";
 import { useLocalKeypair } from "../hooks/useLocalKeypair";
 import { formatAddress } from "../utils";
-import { ConnectWalletMenu } from "./ConnectWalletMenu";
 import { toast } from "sonner";
 
 interface LocalKeypairViewProps {
@@ -17,7 +16,6 @@ export function LocalKeypairView({ wallet }: LocalKeypairViewProps) {
 
   return (
     <div className="local-keypair">
-      <ConnectWalletMenu>Connect</ConnectWalletMenu>
       <button
         type="button"
         className="ghost"
