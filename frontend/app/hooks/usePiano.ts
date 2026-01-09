@@ -153,6 +153,7 @@ export function usePiano({ wallet, setStatus }: UsePianoProps) {
         const noteIndexes = Array.from(
           new Set(notes.map((noteLabel) => noteToIndex(noteLabel)))
         );
+        console.log("noteIndexes", noteIndexes);
         const message = pipe(
           createTransactionMessage({ version: 0 }),
           (m) => setTransactionMessageFeePayerSigner(localKeypair, m),

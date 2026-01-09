@@ -94,9 +94,9 @@ const KEYMAPS: Record<LayoutName, string[]> = {
 };
 
 const MIN_OCTAVE = 1;
-const MAX_OCTAVE = 6;
+const MAX_OCTAVE = 8;
 const ACTIVE_DURATION_MS = 180;
-const DEFAULT_CHORD_THROTTLE_MS = 20;
+const DEFAULT_CHORD_THROTTLE_MS = 40;
 
 function buildKeys(baseOctave: number): PianoKey[] {
   const keys: PianoKey[] = [];
@@ -128,7 +128,7 @@ interface PianoViewProps {
 }
 
 export function PianoView({ wallet }: PianoViewProps) {
-  const [baseOctave, setBaseOctave] = useState(3);
+  const [baseOctave, setBaseOctave] = useState(4);
   const [layout, setLayout] = useState<LayoutName>("qwerty");
   const [status, setStatus] = useState<string | null>(null);
   const [activeNotes, setActiveNotes] = useState<Set<string>>(() => new Set());
